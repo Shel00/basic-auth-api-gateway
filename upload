@@ -18,7 +18,7 @@ aws lambda create-function \
   --handler authenticate.authenticate \
   --zip-file fileb://authenticate.zip \
   --environment "Variables={AUTH_USER=$1,AUTH_PASS=$2}" \
-  --role arn:aws:iam::$acct:role/lambda_basic_execution
+  --role arn:aws:iam::$acct:role/aws-lambda
 if [ $? -ne 0 ]; then
   echo error creating function. If it already exists, use
   echo aws lambda delete-function --function-name $fn_name
